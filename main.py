@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-from pg_noise import PGNoise
+from methods import variance_method, cumulant_method
 
 from utils import (
     add_noise,
@@ -18,10 +18,8 @@ def main():
     )
     y = add_noise(x, a, b, s)
 
-    pg_noise = PGNoise(x, y)
-
-    a_var, b_var = pg_noise.variance_method()
-    a_cumulant, b_cumulant = pg_noise.cumulant_method()
+    a_var, b_var = variance_method(x, y)
+    a_cumulant, b_cumulant = cumulant_method(x, y)
 
     print("===============================================================")
     print(f"a: {a}")
