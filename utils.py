@@ -1,3 +1,10 @@
+"""
+PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples
+
+Authors: Nicolas Bähler, Étienne Objois, Kaan Okumuş, Majed El Helou, and Sabine
+Süsstrunk, Fellow, IEEE.
+"""
+
 import numpy as np
 from scipy.stats import poisson, norm
 from PIL import Image
