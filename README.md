@@ -1,7 +1,7 @@
 # PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples
 
-Authors: Nicolas Bähler, Étienne Objois, Kaan Okumuş, Majed El Helou, and Sabine
-Süsstrunk, _Fellow_, _IEEE_.
+Authors: Nicolas Bähler, Étienne Objois, Kaan Okumuş, [Majed El Helou](https://www.majedelhelou.github.io), and Sabine
+Süsstrunk.
 
 ## [[Paper](https://www.google.ch/)] - [[Abridged Supplementary Material](https://www.google.ch/)] - [[Complete Supplementary Material](https://www.google.ch/)]
 
@@ -31,8 +31,8 @@ anaconda environment.
 ## Introduction
 
 For this paper, we use a Poisson-Gaussian noise model introduced by Foi _et
-al._ \[1\] to model noise that arises in any imaging process. Let us denote the
-observed noisy image as $y$ and the ground truth noise-free image as $x$. Then,
+al._ \[1\] to model noise that arises in an imaging process. Let us denote the
+observed noisy image as $y$ and the ground-truth noise-free image as $x$. Then,
 the Poisson-Gaussian model takes the form of the following equation:
 
 $$
@@ -47,11 +47,11 @@ For example, one might have an instance like:
 
 where $a=45, b=0.015$.
 
-Our method then estimate those parameters based on the noisy and noise-free
-image pair. For above example, the estimated parameters are:
+Our method then estimates those parameters based on the noisy and noise-free
+image pair. For the above example, the estimated parameters are:
 
 ```shell
-Ground truth:
+Ground-truth:
 a=45
 b=0.015
 ===============
@@ -79,4 +79,4 @@ Acknowledgements
 ## References
 
 \[1\] [https://webpages.tuni.fi/foi/papers/Foi-PoissonianGaussianClippedRaw-2007-IEEE_TIP.pdf](https://webpages.tuni.fi/foi/papers/Foi-PoissonianGaussianClippedRaw-2007-IEEE_TIP.pdf)
-<>
+
