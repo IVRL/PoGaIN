@@ -1,0 +1,2 @@
+1. rename methods, from ours_v to PoGAIN_v etc, also in paper, maybe
+2. Complete readme with citation and acknowledgements

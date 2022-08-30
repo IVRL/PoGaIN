@@ -8,8 +8,6 @@ Süsstrunk, Fellow, IEEE.
 import numpy as np
 from scipy.stats import poisson, norm, kstat
 
-# TODO rename methods, from ours_v to PoGAIN_v etc, also in paper
-
 
 def ours_v(x: np.ndarray, y: np.ndarray):
     """
