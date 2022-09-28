@@ -71,7 +71,15 @@ b=0.01819
 
 ## Citation
 
-Citation
+```bibtex
+@article{bahler2022pogain,
+    title={{PoGaIN}: {Poisson-Gaussian} Image Noise Modeling from Paired Samples}, 
+    author={Bähler, Nicolas and El Helou, Majed and Objois, Étienne and Okumuş, Kaan and Süsstrunk, Sabine},
+    journal={IEEE Signal Processing Letters},
+    year={2022},
+    publisher={IEEE}
+}
+```
 
 ## Acknowledgements
 
