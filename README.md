@@ -51,18 +51,19 @@ Our method then estimates those parameters based on the noisy and noise-free
 image pair. For the above example, the estimated parameters are:
 
 ```shell
-Ground-truth:
+===============
+Ground truth:
 a=45
 b=0.015
 ===============
 Log-likelihood:
 LL=135530.152
 ===============
-Ours_v:
+VAR:
 a=44.96868
 b=0.01517
 ===============
-Ours_c:
+OURS:
 a=45.3798
 b=0.01819
 ===============
@@ -79,4 +80,3 @@ Acknowledgements
 ## References
 
 \[1\] [https://webpages.tuni.fi/foi/papers/Foi-PoissonianGaussianClippedRaw-2007-IEEE_TIP.pdf](https://webpages.tuni.fi/foi/papers/Foi-PoissonianGaussianClippedRaw-2007-IEEE_TIP.pdf)
-

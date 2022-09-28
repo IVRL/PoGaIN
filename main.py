@@ -1,14 +1,14 @@
 """
 PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples
 
-Authors: Nicolas Bähler, Étienne Objois, Kaan Okumuş, Majed El Helou, and Sabine
+Authors: Nicolas Bähler, Majed El Helou, Étienne Objois, Kaan Okumuş, and Sabine
 Süsstrunk, Fellow, IEEE.
 
 This python script is simply showing how our estimation approaches can be
 used and how the log-likelihood can be computed.
 """
 
-from implementations import ours_v, ours_c, log_likelihood
+from implementations import var, ours, log_likelihood
 from utils import (
     add_noise,
     load_image,
@@ -28,8 +28,8 @@ def main():
     y = add_noise(x, a, b, s)
 
     # Compute the estimates using our two approaches
-    a_v, b_v = ours_v(x, y)
-    a_c, b_c = ours_c(x, y)
+    a_v, b_v = var(x, y)
+    a_c, b_c = ours(x, y)
 
     # Compute the log-likelihood for the ground truth parameters
     ll = log_likelihood(x, y, a, b, k_max=100)

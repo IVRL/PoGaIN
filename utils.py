@@ -1,7 +1,7 @@
 """
 PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples
 
-Authors: Nicolas Bähler, Étienne Objois, Kaan Okumuş, Majed El Helou, and Sabine
+Authors: Nicolas Bähler, Majed El Helou, Étienne Objois, Kaan Okumuş, and Sabine
 Süsstrunk, Fellow, IEEE.
 """
 

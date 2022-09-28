@@ -1,7 +1,7 @@
 """
 PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples
 
-Authors: Nicolas Bähler, Étienne Objois, Kaan Okumuş, Majed El Helou, and Sabine
+Authors: Nicolas Bähler, Majed El Helou, Étienne Objois, Kaan Okumuş, and Sabine
 Süsstrunk, Fellow, IEEE.
 """
 
@@ -9,7 +9,7 @@ import numpy as np
 from scipy.stats import poisson, norm, kstat
 
 
-def ours_v(x: np.ndarray, y: np.ndarray):
+def var(x: np.ndarray, y: np.ndarray):
     """
     Estimate a and b using our variance approach.
 
@@ -53,15 +53,10 @@ def ours_v(x: np.ndarray, y: np.ndarray):
     else:
         b = np.sqrt(parameters[1])
 
-    if parameters[0] <= 0:
-        return np.nan, np.nan
-
-    a = 1 / parameters[0]
-
-    return a, b
+    return (np.nan, np.nan) if parameters[0] <= 0 else (1 / parameters[0], b)
 
 
-def ours_c(x: np.ndarray, y: np.ndarray):
+def ours(x: np.ndarray, y: np.ndarray):
     """
     Estimate a and b using our cumulant approach.
 
