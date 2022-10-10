@@ -3,7 +3,10 @@
 Authors: Nicolas Bähler, Majed El Helou, Étienne Objois, Kaan Okumuş, and Sabine
 Süsstrunk, _Fellow_, _IEEE_.
 
-## [[Paper](https://www.google.ch/)] - [[Abridged Supplementary Material](https://www.google.ch/)] - [[Complete Supplementary Material](https://www.google.ch/)] - [[Complete report on ArXiv](https://www.google.ch/)]
+<!-- TODO: add arxiv, once arxiv report, once SPL -> SPL -->
+<!-- ## [[Paper](https://www.google.ch/)] - [[ArXiv](https://www.google.ch/)] - [[Complete report on ArXiv](https://www.google.ch/)] -->
+
+## [[ArXiv](https://www.google.ch/)] - [[Abridged Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/abridged_supp_mat.pdf)] - [[Complete Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/supp_mat.pdf)]
 
 ## Abstract
 
@@ -42,7 +45,7 @@ For example, one might have an instance like:
 
 ![image info](comparison.png)
 
-where $a = 11, b = 0.01$.
+where $a = 11$ and $b = 0.01$.
 
 Our method then estimates those parameters based on the noisy and noise-free
 image pair and using the cumulant expansion. As a baseline we implement another estimator based on variance
@@ -67,7 +70,8 @@ b=0.00735
 ===============
 ```
 
-## Citation
+<!-- TODO add arxiv citation and finally SPL -->
+<!-- ## Citation
 
 ```bibtex
 @article{bahler2022pogain,
@@ -77,7 +81,7 @@ b=0.00735
     year={2022},
     publisher={IEEE}
 }
-```
+``` -->
 
 ## References
 
