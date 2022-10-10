@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 .dccache
+.vscode/settings.json

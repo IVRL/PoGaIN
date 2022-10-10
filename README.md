@@ -7,20 +7,17 @@ Süsstrunk, _Fellow_, _IEEE_.
 
 ## Abstract
 
-Image noise modeling is important for analyzing datasets and quantifying the
-performance of image acquisition setups. It is consequently important for the
-fundamental image denoising task. In practice, image noise can often be
-accurately fitted to a Poisson-Gaussian distribution, whose parameters need to
-be estimated.
-
-Estimating the distribution parameters from a noisy image is a challenging task
-studied in the literature. However, when paired noisy and noise-free samples are
-available, no method is available to exploit this noise-free information to
-obtain more accurate estimates. We derive variance- and cumulant-based
-approaches for Poisson-Gaussian noise modeling from paired image samples. We
-analyze our method in depth, show its improved performance over different
-baselines, and additionally derive the log-likelihood function for further
-insight.
+Image noise can often be accurately fitted to a Poisson-Gaussian
+distribution. However, estimating the distribution parameters from only a
+noisy image is a challenging task. Here, we study the case when paired noisy
+and noise-free samples are available. No method is currently available to
+exploit the noise-free information, which holds the promise of achieving
+more accurate estimates. To fill this gap, we derive a novel,
+cumulant-based, approach for Poisson-Gaussian noise modeling from paired
+image samples. We show its improved performance over different baselines
+with special emphasis on MSE, effect of outliers, image dependence and bias,
+and additionally derive the log-likelihood function for further insight and
+discuss real-world applicability.
 
 ## Requirements
 
@@ -45,27 +42,28 @@ For example, one might have an instance like:
 
 ![image info](comparison.png)
 
-where $a=45, b=0.015$.
+where $a = 11, b = 0.01$.
 
 Our method then estimates those parameters based on the noisy and noise-free
-image pair. For the above example, the estimated parameters are:
+image pair and using the cumulant expansion. As a baseline we implement another estimator based on variance
+(called _VAR_) which also uses image pairs. For the above example, the estimated parameters are:
 
 ```shell
 ===============
 Ground truth:
-a=45
-b=0.015
+a=11
+b=0.01
 ===============
 Log-likelihood:
-LL=135530.152
+LL=153825.966
 ===============
 VAR:
-a=44.96868
-b=0.01517
+a=11.08914
+b=0.02098
 ===============
 OURS:
-a=45.3798
-b=0.01819
+a=10.97338
+b=0.00735
 ===============
 ```
 
@@ -73,17 +71,13 @@ b=0.01819
 
 ```bibtex
 @article{bahler2022pogain,
-    title={{PoGaIN}: {Poisson-Gaussian} Image Noise Modeling from Paired Samples}, 
+    title={{PoGaIN}: {Poisson-Gaussian} Image Noise Modeling from Paired Samples},
     author={Bähler, Nicolas and El Helou, Majed and Objois, Étienne and Okumuş, Kaan and Süsstrunk, Sabine},
     journal={IEEE Signal Processing Letters},
     year={2022},
     publisher={IEEE}
 }
 ```
-
-## Acknowledgements
-
-Acknowledgements
 
 ## References
 
