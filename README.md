@@ -6,7 +6,7 @@ Süsstrunk, _Fellow_, _IEEE_.
 <!-- TODO: add arxiv, once arxiv report, once SPL -> SPL -->
 <!-- ## [[Paper](https://www.google.ch/)] - [[ArXiv](https://www.google.ch/)] - [[Complete report on ArXiv](https://www.google.ch/)] -->
 
-## [[ArXiv](https://www.google.ch/)] - [[Abridged Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/abridged_supp_mat.pdf)] - [[Complete Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/supp_mat.pdf)]
+## [[ArXiv](https://arxiv.org/abs/2210.04866)] - [[Abridged Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/abridged_supp_mat.pdf)] - [[Complete Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/supp_mat.pdf)]
 
 ## Abstract
 
@@ -71,9 +71,23 @@ b=0.00735
 ```
 
 <!-- TODO add arxiv citation and finally SPL -->
-<!-- ## Citation
+
+## Citation
 
 ```bibtex
+@misc{https://doi.org/10.48550/arxiv.2210.04866,
+  doi = {10.48550/ARXIV.2210.04866},
+  url = {https://arxiv.org/abs/2210.04866},
+  author = {Bähler, Nicolas and Helou, Majed El and Objois, Étienne and Okumuş, Kaan and Süsstrunk, Sabine},
+  keywords = {Computer Vision and Pattern Recognition (cs.CV), Image and Video Processing (eess.IV), FOS: Computer and information sciences, FOS: Computer and information sciences, FOS: Electrical engineering, electronic engineering, information engineering, FOS: Electrical engineering, electronic engineering, information engineering},
+  title = {PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International}
+}
+```
+
+<!-- ```bibtex
 @article{bahler2022pogain,
     title={{PoGaIN}: {Poisson-Gaussian} Image Noise Modeling from Paired Samples},
     author={Bähler, Nicolas and El Helou, Majed and Objois, Étienne and Okumuş, Kaan and Süsstrunk, Sabine},
