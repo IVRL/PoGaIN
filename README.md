@@ -75,25 +75,23 @@ b=0.00735
 ## Citation
 
 ```bibtex
-@misc{https://doi.org/10.48550/arxiv.2210.04866,
-  doi = {10.48550/ARXIV.2210.04866},
-  url = {https://arxiv.org/abs/2210.04866},
-  author = {Bähler, Nicolas and Helou, Majed El and Objois, Étienne and Okumuş, Kaan and Süsstrunk, Sabine},
-  keywords = {Computer Vision and Pattern Recognition (cs.CV), Image and Video Processing (eess.IV), FOS: Computer and information sciences, FOS: Computer and information sciences, FOS: Electrical engineering, electronic engineering, information engineering, FOS: Electrical engineering, electronic engineering, information engineering},
-  title = {PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples},
-  publisher = {arXiv},
-  year = {2022},
-  copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International}
+@misc{bähler2022pogain,
+  title={PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples},
+  author={Nicolas Bähler and Majed El Helou and Étienne Objois and Kaan Okumuş and Sabine Süsstrunk},
+  year={2022},
+  eprint={2210.04866},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
 }
 ```
 
 <!-- ```bibtex
 @article{bahler2022pogain,
-    title={{PoGaIN}: {Poisson-Gaussian} Image Noise Modeling from Paired Samples},
-    author={Bähler, Nicolas and El Helou, Majed and Objois, Étienne and Okumuş, Kaan and Süsstrunk, Sabine},
-    journal={IEEE Signal Processing Letters},
-    year={2022},
-    publisher={IEEE}
+  title={{PoGaIN}: {Poisson-Gaussian} Image Noise Modeling from Paired Samples},
+  author={Bähler, Nicolas and El Helou, Majed and Objois, Étienne and Okumuş, Kaan and Süsstrunk, Sabine},
+  journal={IEEE Signal Processing Letters},
+  year={2022},
+  publisher={IEEE}
 }
 ``` -->
 
