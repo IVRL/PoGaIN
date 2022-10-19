@@ -75,13 +75,11 @@ b=0.00735
 ## Citation
 
 ```bibtex
-@misc{bahler2022pogain,
-  title={PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples},
-  author={B\"ahler, Nicolas and El Helou, Majed and Objois, \'Etienne and Okumu\c{s}, Kaan and S\"usstrunk, Sabine},
-  year={2022},
-  eprint={2210.04866},
-  archivePrefix={arXiv},
-  primaryClass={cs.CV}
+@article{bahler2022pogain,
+  title={{PoGaIN: Poisson-Gaussian} Image Noise Modeling from Paired Samples},
+  author={B{\"a}hler, Nicolas and El Helou, Majed and Objois, {\'E}tienne and Okumu{\c{s}}, Kaan and S{\"u}sstrunk, Sabine},
+  journal={arXiv preprint arXiv:2210.04866},
+  year={2022}
 }
 ```
 
