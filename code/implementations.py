@@ -3,13 +3,16 @@ PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples
 
 Authors: Nicolas Bähler, Majed El Helou, Étienne Objois, Kaan Okumuş, and Sabine
 Süsstrunk, Fellow, IEEE.
+
+This file contains the implementation of the baseline variance method, our
+method (cumulant-based) and the log-likelihood function.
 """
 
 import numpy as np
-from scipy.stats import poisson, norm, kstat
+from scipy.stats import kstat, norm, poisson
 
 
-def var(x: np.ndarray, y: np.ndarray):
+def var(x: np.ndarray, y: np.ndarray) -> tuple[float, float]:
     """
     Estimate a and b using our variance approach.
 
@@ -44,8 +47,8 @@ def var(x: np.ndarray, y: np.ndarray):
 
     parameters, _, _, _ = np.linalg.lstsq(lhs_w, rhs_w, rcond=None)
 
-    if parameters[1] < 0:  # One can argue that we should return nan here
-        # Assuming b==0, redo the estimation with b==0
+    if parameters[1] < 0:
+        # Assuming b==0, redo the estimation for a with b==0
         lhs_w = np.array(lhs_w[:, 0])[:, None]
         parameters, _, _, _ = np.linalg.lstsq(lhs_w, rhs_w, rcond=None)
 
@@ -56,7 +59,7 @@ def var(x: np.ndarray, y: np.ndarray):
     return (np.nan, np.nan) if parameters[0] <= 0 else (1 / parameters[0], b)
 
 
-def ours(x: np.ndarray, y: np.ndarray):
+def ours(x: np.ndarray, y: np.ndarray) -> tuple[float, float]:
     """
     Estimate a and b using our cumulant approach.
 
@@ -104,7 +107,7 @@ def ours(x: np.ndarray, y: np.ndarray):
     )
 
 
-def log_likelihood(x, y, a, b, k_max=100):
+def log_likelihood(x, y, a, b, k_max=100) -> float:
     """
     Computes the log-likelihood for parameter values a and b. This is not
     trimmed for performance but we included this version for its simplicity.

@@ -3,15 +3,17 @@ PoGaIN: Poisson-Gaussian Image Noise Modeling from Paired Samples
 
 Authors: Nicolas Bähler, Majed El Helou, Étienne Objois, Kaan Okumuş, and Sabine
 Süsstrunk, Fellow, IEEE.
+
+This file contains utility methods.
 """
 
 import numpy as np
-from scipy.stats import poisson, norm
 from PIL import Image
+from scipy.stats import norm, poisson
 
 
-def load_image(path):
-    # load the image and convert into numpy array
+def load_image(path: str) -> tuple[np.ndarray, tuple[int, int]]:
+    # Load the image and convert into numpy array
     img = Image.open(path)
     array = np.asarray(img)
 
@@ -23,7 +25,7 @@ def load_image(path):
     return (array.flatten(), array.shape)
 
 
-def add_noise(x, a, b, seed):
+def add_noise(x: np.ndarray, a: float, b: float, seed: int) -> np.ndarray:
     np.random.seed(seed)
     n = len(x)
 
