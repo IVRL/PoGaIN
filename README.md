@@ -5,7 +5,7 @@ Süsstrunk, _Fellow_, _IEEE_.
 
 <!-- TODO: Replace arxiv with SPL -->
 
-## [[ArXiv](https://arxiv.org/abs/2210.04866)] - [[Abridged Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/abridged_supplementary_material.pdf)] - [[Complete Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/supplementary_material.pdf)]
+## [[ArXiv](https://arxiv.org/abs/2210.04866)] - [[Abridged Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/abriged_supplementary_material.pdf)] - [[Complete Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/supplementary_material.pdf)]
 
 ## Abstract
 
