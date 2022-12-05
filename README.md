@@ -26,7 +26,7 @@ the Poisson-Gaussian model takes the following form:
 
 $$
 \begin{equation}
-    y = \frac{\alpha}{a} + \beta, \quad \alpha \sim \mathcal{P}(ax), \quad \beta \sim \mathcal{N}(0,b^2).
+    y = \frac{1}{a} \alpha + \beta, \quad \alpha \sim \mathcal{P}(ax), \quad \beta \sim \mathcal{N}(0,b^2).
 \end{equation}
 $$
 
