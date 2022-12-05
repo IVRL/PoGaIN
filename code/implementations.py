@@ -30,32 +30,40 @@ def var(x: np.ndarray, y: np.ndarray) -> tuple[float, float]:
     b : float or nan
         Estimation of b
     """
+    # Create bins of pixel with the same value
     idx = np.argsort(x)
     x_sorted = x[idx]
     y_sorted = y[idx]
 
-    x_unique, x_index, xc = np.unique(x_sorted, return_index=True, return_counts=True)
+    # Compute the the difference squared
+    x_unique, x_index, x_counts = np.unique(
+        x_sorted, return_index=True, return_counts=True
+    )
     splitted = np.split(y_sorted - x_sorted, x_index[1:])
 
     var = np.zeros(x_unique.size)
     for i, element in enumerate(splitted):
         var[i] = np.square(element).mean()
 
+    # Formulate the problem as a linear matrix equation
     lhs = np.array([x_unique, np.ones(x_unique.size)]).T
-    lhs_w = lhs * np.sqrt(xc[:, np.newaxis])
-    rhs_w = var * np.sqrt(xc)
+    lhs_weighted = lhs * np.sqrt(x_counts[:, np.newaxis])
+    rhs_weighted = var * np.sqrt(x_counts)
 
-    parameters, _, _, _ = np.linalg.lstsq(lhs_w, rhs_w, rcond=None)
+    # Compute the lest squares solution
+    parameters, _, _, _ = np.linalg.lstsq(lhs_weighted, rhs_weighted, rcond=None)
 
+    # b squared can't be negative
     if parameters[1] < 0:
-        # Assuming b==0, redo the estimation for a with b==0
-        lhs_w = np.array(lhs_w[:, 0])[:, None]
-        parameters, _, _, _ = np.linalg.lstsq(lhs_w, rhs_w, rcond=None)
+        # Assuming b is 0 and redo the estimation for a with b==0
+        lhs_weighted = np.array(lhs_weighted[:, 0])[:, None]
+        parameters, _, _, _ = np.linalg.lstsq(lhs_weighted, rhs_weighted, rcond=None)
 
         b = 0
     else:
         b = np.sqrt(parameters[1])
 
+    # a must be strictly positive
     return (np.nan, np.nan) if parameters[0] <= 0 else (1 / parameters[0], b)
 
 
@@ -77,30 +85,39 @@ def ours(x: np.ndarray, y: np.ndarray) -> tuple[float, float]:
     b : float or nan
         Estimation of b
     """
+    # Compute k statistics
     k2 = kstat(y, n=2)
     k3 = kstat(y, n=3)
 
+    # Compute the values we need
     x_mean = x.mean()
     x_mean_squared = x.mean() ** 2
     x_squared_mean = np.power(x, 2).mean()
     x_mean_cubed = x.mean() ** 3
     x_cubed_mean = np.power(x, 3).mean()
 
+    # Compute the coefficients of the polynomial
     coeffs = [
         x_cubed_mean - 3 * x_squared_mean * x_mean + 2 * x_mean_cubed - k3,
         3 * x_squared_mean - 3 * x_mean_squared,
         x_mean,
     ]
+
+    # Create a polynomial and find its roots
     kz3 = np.polynomial.Polynomial(coeffs)
     roots = kz3.roots()
 
     a = 1 / (roots[np.where(roots > 0)])
     if a.size == 0:
+        # a must be strictly positive
         return np.nan, np.nan
     else:
         a = a[0]
+
+    # Compute b squared
     b_squared = k2 - x_squared_mean + x_mean_squared - x_mean / a
 
+    # b squared can't be negative
     return (
         a,
         np.sqrt(b_squared) if b_squared >= 0 else 0,
@@ -127,19 +144,24 @@ def log_likelihood(x, y, a, b, k_max=100) -> float:
         $\mathcal{LL}(y|a,b,x) = \sum_{n}\log{\left(\sum_{k=0}^{k_max} \frac{(ax_n)^k}{k!b\sqrt{2\pi}}\exp{\left(-ax_n-\frac{(y_n-k/a)^2}{2b^2}\right)}\right)}$
 
     """
-
+    # Prepare the computation
     n = x.shape[0]
-
     ks = np.tile(np.arange(k_max + 1), (n, 1))
     ys = np.tile(y, (k_max + 1, 1)).T
     mus = np.tile(a * x, (k_max + 1, 1)).T
 
-    gaussian_pdf = norm.pdf(ys, loc=ks / a, scale=b)
-    poisson_pmf = poisson.pmf(ks, mu=mus)
+    # Compute the the gaussian and Poisson parts
+    gaussian_part = norm.pdf(ys, loc=ks / a, scale=b)
+    poisson_part = poisson.pmf(ks, mu=mus)
 
-    total_pmf = np.multiply(gaussian_pdf, poisson_pmf)
-    per_pixel = np.sum(total_pmf, axis=1)
+    # Compute the likelihood for each pixel
+    total = np.multiply(gaussian_part, poisson_part)
+    per_pixel_likelihood = np.sum(total, axis=1)
 
     # If we have one pixel with zero likelihood, the total likelihood should be
     # zero too, hence the log one should be -infinity
-    return -np.inf if (per_pixel <= 0).any() else np.sum(np.log(per_pixel))
+    return (
+        -np.inf
+        if (per_pixel_likelihood <= 0).any()
+        else np.sum(np.log(per_pixel_likelihood))
+    )
