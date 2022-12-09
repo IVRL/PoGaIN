@@ -5,7 +5,7 @@ Süsstrunk, _Fellow_, _IEEE_.
 
 <!-- TODO: Replace arxiv with SPL -->
 
-## [[ArXiv](https://arxiv.org/abs/2210.04866)] - [[Paper](https://github.com/IVRL/PoGaIN/blob/main/paper/paper.pdf)] - [[Abridged Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/abriged_supplementary_material.pdf)] - [[Complete Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/supplementary_material.pdf)]
+## [[IEEE Xplore](https://ieeexplore.ieee.org/document/9976220)] - [[Paper](https://github.com/IVRL/PoGaIN/blob/main/paper/paper.pdf)] - [[Abridged Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/abriged_supplementary_material.pdf)] - [[Complete Supplementary Material](https://github.com/IVRL/PoGaIN/blob/main/supplementary_material/supplementary_material.pdf)]
 
 ## Abstract
 
@@ -65,6 +65,18 @@ b=0.00735
 ## Citation
 
 ```bibtex
+@ARTICLE{9976220,
+author={Bähler, Nicolas and El Helou, Majed and Objois, Étienne and Okumuş, Kaan and Süsstrunk, Sabine},
+journal={IEEE Signal Processing Letters},   title={PoGaIN: Poisson-Gaussian Image Noise Modeling From Paired Samples},   year={2022},
+volume={},
+number={},
+pages={1-5},
+doi={10.1109/LSP.2022.3227522}}
+```
+
+
+<!--
+```bibtex
 @article{bahler2022pogain,
   title={{PoGaIN: Poisson-Gaussian} Image Noise Modeling from Paired Samples},
   author={B{\"a}hler, Nicolas and El Helou, Majed and Objois, {\'E}tienne and Okumu{\c{s}}, Kaan and S{\"u}sstrunk, Sabine},
@@ -72,6 +84,7 @@ b=0.00735
   year={2022}
 }
 ```
+-->
 
 <!-- ```bibtex
 @article{bahler2022pogain,
