@@ -14,7 +14,7 @@ from scipy.stats import kstat, norm, poisson
 
 def var(x: np.ndarray, y: np.ndarray) -> tuple[float, float]:
     """
-    Estimate a and b using our variance approach.
+    Estimate a and b using our variance based baseline.
 
     Parameters
     ----------
@@ -58,13 +58,12 @@ def var(x: np.ndarray, y: np.ndarray) -> tuple[float, float]:
         # Assuming b is 0 and redo the estimation for a with b==0
         lhs_weighted = np.array(lhs_weighted[:, 0])[:, None]
         parameters, _, _, _ = np.linalg.lstsq(lhs_weighted, rhs_weighted, rcond=None)
-
         b = 0
     else:
         b = np.sqrt(parameters[1])
 
     # a must be strictly positive
-    return (np.nan, np.nan) if parameters[0] <= 0 else (1 / parameters[0], b)
+    return (np.nan, b) if parameters[0] <= 0 else (1 / parameters[0], b)
 
 
 def ours(x: np.ndarray, y: np.ndarray) -> tuple[float, float]:
@@ -126,11 +125,14 @@ def ours(x: np.ndarray, y: np.ndarray) -> tuple[float, float]:
 
 def log_likelihood(x, y, a, b, k_max=100) -> float:
     """
-    Computes the log-likelihood for parameter values a and b. This is not
-    trimmed for performance but we included this version for its simplicity.
+    Computes the log-likelihood for x and y with parameter values a and b.
 
     Parameters
     ----------
+    x : np.ndarray
+        The ground truth noise-free image
+    y : np.ndarray
+        The noisy image
     a : float > 0
         estimation of the quantum efficiency
     b : float > 0
@@ -145,7 +147,7 @@ def log_likelihood(x, y, a, b, k_max=100) -> float:
 
     """
     # Prepare the computation
-    n = x.shape[0]
+    n = len(np.atleast_1d(y))
     ks = np.tile(np.arange(k_max + 1), (n, 1))
     ys = np.tile(y, (k_max + 1, 1)).T
     mus = np.tile(a * x, (k_max + 1, 1)).T

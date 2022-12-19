@@ -12,7 +12,7 @@ from PIL import Image
 from scipy.stats import norm, poisson
 
 
-def load_image(path: str) -> tuple[np.ndarray, tuple[int, int]]:
+def load_image(path: str, keep_shape=False) -> tuple[np.ndarray, tuple[int, int]]:
     # Load the image and convert into numpy array
     img = Image.open(path)
     array = np.asarray(img)
@@ -22,14 +22,17 @@ def load_image(path: str) -> tuple[np.ndarray, tuple[int, int]]:
 
     array = array / 255
 
-    return (array.flatten(), array.shape)
+    return array if keep_shape else (array.flatten(), array.shape)
 
 
-def add_noise(x: np.ndarray, a: float, b: float, seed: int) -> np.ndarray:
+def add_noise(x: np.ndarray, a: float, b: float, seed=None) -> np.ndarray:
     np.random.seed(seed)
     n = len(x)
 
     poisson_noise = poisson.rvs(mu=a * x, size=n)
     gaussian_noise = norm.rvs(scale=b, size=n)
-
     return poisson_noise / a + gaussian_noise
+
+
+def create_fake_image(n, lower=0, upper=1) -> np.ndarray:
+    return np.random.uniform(lower, upper, size=n)

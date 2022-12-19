@@ -1,5 +1,6 @@
 name: PoGaIN
 channels:
+  - anaconda
   - conda-forge
   - defaults
 dependencies:
@@ -10,14 +11,20 @@ dependencies:
   - backports=1.0=py_2
   - backports.functools_lru_cache=1.6.4=pyhd8ed1ab_0
   - blas=1.0=mkl
+  - bottleneck=1.3.5=py39h7deecbd_0
   - brotli=1.0.9=h5eee18b_7
   - brotli-bin=1.0.9=h5eee18b_7
   - ca-certificates=2022.07.19=h06a4308_0
   - certifi=2022.6.15=py39h06a4308_0
+  - cudatoolkit=11.2.2=hbe64b41_10
+  - cudnn=8.1.0.77=h90431f1_0
   - cycler=0.11.0=pyhd3eb1b0_0
+  - daal4py=2021.6.0=py39h79cecc1_1
+  - dal=2021.6.0=hdb19cb5_916
   - dbus=1.13.18=hb2f20db_0
   - debugpy=1.5.1=py39h295c915_0
   - decorator=5.1.1=pyhd8ed1ab_0
+  - dill=0.3.6=py39h06a4308_0
   - entrypoints=0.4=pyhd8ed1ab_0
   - executing=0.10.0=pyhd8ed1ab_0
   - expat=2.4.4=h295c915_0
@@ -33,6 +40,8 @@ dependencies:
   - ipykernel=6.15.1=pyh210e3f2_0
   - ipython=8.4.0=pyh41d4057_1
   - jedi=0.18.1=pyhd8ed1ab_2
+  - jinja2=3.0.3=pyhd3eb1b0_0
+  - joblib=1.1.1=py39h06a4308_0
   - jpeg=9e=h7f8727e_0
   - jupyter_client=7.0.6=pyhd8ed1ab_0
   - jupyter_core=4.11.1=py39hf3d152e_0
@@ -44,7 +53,6 @@ dependencies:
   - libbrotlicommon=1.0.9=h5eee18b_7
   - libbrotlidec=1.0.9=h5eee18b_7
   - libbrotlienc=1.0.9=h5eee18b_7
-  - libclang=10.0.1=default_hb85057a_2
   - libdeflate=1.8=h7f8727e_5
   - libedit=3.1.20210910=h7f8727e_0
   - libevent=2.1.12=h8f2d780_0
@@ -67,6 +75,7 @@ dependencies:
   - libxml2=2.9.14=h74e7548_0
   - libxslt=1.1.35=h4e12654_0
   - lz4-c=1.9.3=h295c915_1
+  - markupsafe=2.1.1=py39h7f8727e_0
   - matplotlib=3.5.2=py39h06a4308_0
   - matplotlib-base=3.5.2=py39hf590b9c_0
   - matplotlib-inline=0.1.6=pyhd8ed1ab_0
@@ -74,15 +83,20 @@ dependencies:
   - mkl-service=2.4.0=py39h7f8727e_0
   - mkl_fft=1.3.1=py39hd3c417c_0
   - mkl_random=1.2.2=py39h51133e4_0
+  - mpi=1.0=mpich
+  - mpich=3.3.2=hc856adb_0
+  - multiprocess=0.70.14=py39h06a4308_0
   - munkres=1.1.4=py_0
-  - ncurses=6.3=h5eee18b_3
+  - ncurses=6.3=h27087fc_1
   - nest-asyncio=1.5.5=pyhd8ed1ab_0
   - nspr=4.33=h295c915_0
   - nss=3.74=h0370c37_0
+  - numexpr=2.8.4=py39he184ba9_0
   - numpy=1.22.3=py39he7a7128_0
   - numpy-base=1.22.3=py39hf524024_0
   - openssl=1.1.1q=h7f8727e_0
   - packaging=21.3=pyhd8ed1ab_0
+  - pandas=1.5.2=py39h417a72b_0
   - parso=0.8.3=pyhd8ed1ab_0
   - pcre=8.45=h295c915_0
   - pexpect=4.8.0=pyh9f0ad1d_2
@@ -101,17 +115,22 @@ dependencies:
   - python=3.9.12=h12debd9_1
   - python-dateutil=2.8.2=pyhd8ed1ab_0
   - python_abi=3.9=2_cp39
+  - pytz=2022.1=py39h06a4308_0
   - pyzmq=19.0.2=py39hb69f2a1_2
   - qt-main=5.15.2=h327a75a_7
   - qt-webengine=5.15.9=hd2b0992_4
   - qtwebkit=5.212=h4eab89a_4
   - readline=8.1.2=h7f8727e_1
+  - scikit-learn=1.0.2=py39h51133e4_1
+  - scikit-learn-intelex=2021.6.0=py39h06a4308_0
   - scipy=1.7.3=py39hc147768_0
   - setuptools=63.4.1=py39h06a4308_0
   - sip=6.6.2=py39h6a678d5_0
   - six=1.16.0=pyhd3eb1b0_1
   - sqlite=3.39.2=h5082296_0
   - stack_data=0.4.0=pyhd8ed1ab_0
+  - tbb=2021.6.0=hdb19cb5_0
+  - threadpoolctl=2.2.0=pyh0d69192_0
   - tk=8.6.12=h1ccaba5_0
   - toml=0.10.2=pyhd3eb1b0_0
   - tornado=6.1=py39hb9d737c_3
@@ -123,4 +142,41 @@ dependencies:
   - zeromq=4.3.4=h9c3ff4c_1
   - zlib=1.2.12=h7f8727e_2
   - zstd=1.5.2=ha4553b6_0
+  - pip:
+      - absl-py==1.3.0
+      - astunparse==1.6.3
+      - cachetools==5.2.0
+      - charset-normalizer==2.1.1
+      - flatbuffers==22.12.6
+      - gast==0.4.0
+      - google-auth==2.15.0
+      - google-auth-oauthlib==0.4.6
+      - google-pasta==0.2.0
+      - grpcio==1.51.1
+      - h5py==3.7.0
+      - idna==3.4
+      - importlib-metadata==5.1.0
+      - keras==2.11.0
+      - libclang==14.0.6
+      - markdown==3.4.1
+      - oauthlib==3.2.2
+      - opt-einsum==3.3.0
+      - protobuf==3.19.6
+      - pyasn1==0.4.8
+      - pyasn1-modules==0.2.8
+      - requests==2.28.1
+      - requests-oauthlib==1.3.1
+      - rsa==4.9
+      - tensorboard==2.11.0
+      - tensorboard-data-server==0.6.1
+      - tensorboard-plugin-wit==1.8.1
+      - tensorflow==2.11.0
+      - tensorflow-estimator==2.11.0
+      - tensorflow-io-gcs-filesystem==0.28.0
+      - termcolor==2.1.1
+      - typing-extensions==4.4.0
+      - urllib3==1.26.13
+      - werkzeug==2.2.2
+      - wrapt==1.14.1
+      - zipp==3.11.0
 prefix: /home/nicolas/anaconda3/envs/PoGaIN

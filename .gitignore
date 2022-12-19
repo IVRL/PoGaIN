@@ -130,3 +130,9 @@ dmypy.json
 
 .dccache
 .vscode/settings.json
+
+code/reproducibility/w2s/data
+code/reproducibility/w2s/results
+code/reproducibility/w2s/code/noise_modeling/SR
+code/reproducibility/w2s/code/noise_modeling/widefield
+code/reproducibility/w2s/code/noise_modeling/*.mat
