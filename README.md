@@ -160,9 +160,9 @@ requires some time. You can easily change this in
   doi     = {10.1109/LSP.2022.3227522},
   journal = {IEEE Signal Processing Letters},
   number  = {},
-  pages   = {1-5},
+  pages   = {2602-2606},
   title   = {PoGaIN: Poisson-Gaussian Image Noise Modeling From Paired Samples},
-  volume  = {},
+  volume  = {29},
   year    = {2022}
 }
 ```
